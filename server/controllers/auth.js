@@ -18,3 +18,12 @@ export const signup = async (req, res, next) => {
     next(createError(500, "Username or Email is in use!"));
   }
 };
+
+export const signin = async (req, res, next) => {
+  try {
+    const user = await User.findOne({ name: req.body.name });
+    if (!user) return next(createError(404, "Username or Email not found!"));
+  } catch (error) {
+    next(error);
+  }
+};
