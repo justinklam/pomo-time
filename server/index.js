@@ -22,6 +22,7 @@ const connect = () => {
     });
 };
 
+// Use Routes
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 
