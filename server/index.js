@@ -22,6 +22,9 @@ const connect = () => {
     });
 };
 
+// to allow external json
+app.use(express.json());
+
 // Use Routes
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
