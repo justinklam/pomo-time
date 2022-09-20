@@ -36,6 +36,8 @@ export const signin = async (req, res, next) => {
     const token = jwt.sign({ id: user._id }, process.env.JWT, {
       expiresIn: "7d", // token expires in 7 days
     });
+    // send all info except password
+    const { password, ...userInfo } = user._doc;
 
     // so third party cannot access cookie
     res
@@ -43,7 +45,7 @@ export const signin = async (req, res, next) => {
         httpOnly: true,
       })
       .status(200)
-      .json(user);
+      .json(userInfo);
   } catch (error) {
     next(error);
   }
