@@ -30,6 +30,20 @@ export const signin = async (req, res, next) => {
 
     if (!passCheck)
       return next(createError(400, "Incorrect login credentials!"));
+
+    // passing in user id
+    // using the id to create a hash token that we send to the user
+    const token = jwt.sign({ id: user._id }, process.env.JWT, {
+      expiresIn: "7d", // token expires in 7 days
+    });
+
+    // so third party cannot access cookie
+    res
+      .cookie("access_token", token, {
+        httpOnly: true,
+      })
+      .status(200)
+      .json(user);
   } catch (error) {
     next(error);
   }
