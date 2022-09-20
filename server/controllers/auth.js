@@ -23,6 +23,12 @@ export const signin = async (req, res, next) => {
   try {
     const user = await User.findOne({ name: req.body.name });
     if (!user) return next(createError(404, "Username or Email not found!"));
+
+    // comparing sign in password with db password
+    const passCheck = await bcrypt.compare(req.body.password, user.password);
+
+    if (!passCheck)
+      return next(createError(400, "Incorrect login credentials!"));
   } catch (error) {
     next(error);
   }
