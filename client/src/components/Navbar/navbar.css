@@ -1,0 +1,10 @@
+nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+.navlinks {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
