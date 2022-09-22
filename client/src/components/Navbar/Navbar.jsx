@@ -34,7 +34,24 @@ const Navbar = () => {
             Timer <i class="fa-solid fa-clock"></i>
           </Link>
         </li>
+        <li className="nav-item">
+          <Link to="/contact" className="nav-links" onClick={closeMobileMenu}>
+            Contact
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link
+            to="/sign-up"
+            className="nav-links-mobile"
+            onClick={closeMobileMenu}
+          >
+            Sign Up
+          </Link>
+        </li>
       </ul>
+      <Link to="sign-up">
+        <button className="btn">Sign Up</button>
+      </Link>
     </nav>
   );
 };
