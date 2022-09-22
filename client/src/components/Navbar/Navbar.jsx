@@ -3,9 +3,6 @@ import "./navbar.css";
 // React Router Dom
 import { Link } from "react-router-dom";
 
-// Components
-import Dropdown from "../Dropdown/Dropdown";
-
 const Navbar = () => {
   const [click, setClick] = useState(false);
 
