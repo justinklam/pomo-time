@@ -7,7 +7,13 @@ import { Link } from "react-router-dom";
 import Dropdown from "../Dropdown/Dropdown";
 
 const Navbar = () => {
-  return <div>Navbar</div>;
+  return (
+    <nav className="navbar">
+      <Link to="/" className="navbar-logo">
+        Navbar
+      </Link>
+    </nav>
+  );
 };
 
 export default Navbar;
