@@ -7,11 +7,20 @@ import { Link } from "react-router-dom";
 import Dropdown from "../Dropdown/Dropdown";
 
 const Navbar = () => {
+  const [click, setClick] = useState(false);
+
+  // sets opposite of current click status
+  const handleClick = () => setClick(!click);
+
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-logo">
-        Navbar
+        Pomo-Time
       </Link>
+      <div className="menu-icon" onClick={handleClick}>
+        {/* if click is true, show fas fa-times else hamburger */}
+        <i className={click ? "fas fa-times" : "fas fa-bars"} />
+      </div>
     </nav>
   );
 };
