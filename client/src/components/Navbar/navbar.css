@@ -16,6 +16,23 @@
   font-size: 2rem;
 }
 
+.nav-menu {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-gap: 10px;
+  justify-content: end;
+  width: 70vw;
+  margin-right: 2rem;
+  list-style: none;
+  text-align: center;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+
 .btn {
   background-color: #1880ee;
   padding: 8px 20px;
