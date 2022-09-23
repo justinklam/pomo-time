@@ -118,6 +118,29 @@
     color: #fff;
     font-size: 2rem;
   }
+
+  .nav-links-mobile {
+    display: block;
+    text-align: center;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    border-radius: 4px;
+    width: 80%;
+    background: #1888ff;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+
+  .nav-links-mobile:hover {
+    background: #fff;
+    color: #1888ff;
+    transition: 250ms;
+  }
+
+  button {
+    display: none;
+  }
 }
 
 .btn {
@@ -133,8 +156,8 @@
 
 .btn:hover {
   padding: 6px 18px;
-  color: #fff;
   border-radius: 4px;
   border: 2px solid #1880ee;
+  color: #fff;
   opacity: 80%;
 }
