@@ -1,3 +1,21 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(0, 7, 52);
+  height: 80px;
+  font-size: 1.2rem;
+}
+
+.navbar-logo {
+  color: #fff;
+  justify-self: start;
+  margin-left: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
 .btn {
   background-color: #1880ee;
   padding: 8px 20px;
@@ -7,7 +25,6 @@
   font-size: 18px;
   color: #fff;
   cursor: pointer;
-  opacity: 80%;
 }
 
 .btn:hover {
@@ -15,5 +32,5 @@
   color: #fff;
   border-radius: 4px;
   border: 2px solid #1880ee;
-  opacity: 100%;
+  opacity: 80%;
 }
