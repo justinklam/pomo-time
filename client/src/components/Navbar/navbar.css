@@ -33,6 +33,18 @@
   height: 80px;
 }
 
+.nav-links {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.nav-links:hover {
+  background-color: #1888ff;
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
+}
+
 .btn {
   background-color: #1880ee;
   padding: 8px 20px;
