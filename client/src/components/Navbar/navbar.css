@@ -101,6 +101,23 @@
     /* transform to lineup with hamburger */
     transform: translate(25%, 50%);
   }
+
+  /* hamburger */
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  /* cross */
+  .fa-times {
+    color: #fff;
+    font-size: 2rem;
+  }
 }
 
 .btn {
