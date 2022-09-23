@@ -82,6 +82,17 @@
     transition: all 0.5s ease;
     z-index: 1;
   }
+
+  .nav-links {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+  }
+
+  .nav-links:hover {
+    background-color: #1888ff;
+    border-radius: 0;
+  }
 }
 
 .btn {
