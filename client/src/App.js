@@ -3,30 +3,31 @@ import "./app.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Components
 import Navbar from "./components/Navbar/Navbar";
-import Home from "./pages/Home";
-import Timer from "./pages/Timer";
-import Contact from "./pages/Contact";
-import SignUp from "./pages/SignUp";
+import Home from "./components/pages/Home/Home";
+import Timer from "./components/pages/Timer/Timer";
+import Contact from "./components/pages/Contact/Contact";
+import SignUp from "./components/pages/SignUp/SignUp";
 
 function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <Routes>
-        <Route path="/">
-          <Route index element={<Home />} />
-        </Route>
-        <Route path="/timer">
-          <Route index element={<Timer />} />
-        </Route>
-        <Route path="/contact">
-          <Route index element={<Contact />} />
-        </Route>
-        <Route path="/sign-up">
-          <Route index element={<SignUp />} />
-        </Route>
-      </Routes>
-      <div className="main">Main Area</div>
+      <div className="main-container">
+        <Routes>
+          <Route path="/">
+            <Route index element={<Home />} />
+          </Route>
+          <Route path="/timer">
+            <Route index element={<Timer />} />
+          </Route>
+          <Route path="/contact">
+            <Route index element={<Contact />} />
+          </Route>
+          <Route path="/sign-up">
+            <Route index element={<SignUp />} />
+          </Route>
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }
