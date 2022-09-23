@@ -45,6 +45,18 @@
   transition: all 0.2s ease-out;
 }
 
+.fa-bars {
+  color: #fff;
+}
+
+.nav-links-mobile {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+}
+
 .btn {
   background-color: #1880ee;
   padding: 8px 20px;
