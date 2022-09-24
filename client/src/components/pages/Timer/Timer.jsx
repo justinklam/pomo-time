@@ -17,7 +17,7 @@ const Timer = () => {
   const green = "#4aec8c";
 
   return (
-    <div>
+    <div className="timer-progress">
       <CircularProgressbar
         value={percentage}
         styles={buildStyles({

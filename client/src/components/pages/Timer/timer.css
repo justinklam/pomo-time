@@ -1,3 +1,10 @@
 body {
   background-color: #30384b;
 }
+
+.timer-progress {
+  padding-top: 50px;
+  max-width: 340px;
+  margin: 0 auto;
+  text-align: center;
+}
