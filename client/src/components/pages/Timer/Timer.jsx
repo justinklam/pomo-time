@@ -1,5 +1,7 @@
 import React from "react";
 import "./timer.css";
+
+// React Router Dom
 import { Link } from "react-router-dom";
 
 // React Circular Progress bar
@@ -10,9 +12,6 @@ import "react-circular-progressbar/dist/styles.css";
 import PlayButton from "../../PlayButton/PlayButton";
 import PauseButton from "../../PauseButton/PauseButton";
 import SettingsButton from "../../SettingsButton/SettingsButton";
-
-// Context
-import SettingsContext from "../../../context/SettingsContext";
 
 const Timer = () => {
   const percentage = 60;
@@ -34,11 +33,7 @@ const Timer = () => {
       <PauseButton />
       <div className="timer-settings">
         <Link to="/settings">
-          <SettingsContext.Provider
-            value={{ workMinutes: 45, breakMinutes: 15 }}
-          >
-            <SettingsButton />
-          </SettingsContext.Provider>
+          <SettingsButton />
         </Link>
       </div>
     </div>

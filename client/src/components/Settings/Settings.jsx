@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import "./settings.css";
+
 // Use Context
 import SettingsContext from "../../context/SettingsContext";
 
@@ -7,26 +8,30 @@ import SettingsContext from "../../context/SettingsContext";
 import ReactSlider from "react-slider";
 
 const Settings = () => {
-  const context = useContext(SettingsContext);
+  const settingsInfo = useContext(SettingsContext);
 
   return (
     <div className="settings-container">
-      <label className="pomodoro-label">Work Duration - Minutes:</label>
+      <label className="pomodoro-label">
+        Work Duration - Minutes: {settingsInfo.workMinutes}
+      </label>
       <ReactSlider
         className="slider"
         thumbClassName="slider-thumb"
         trackClassName="slider-track"
         marksClassName="marks"
-        value={5}
+        value={settingsInfo.workMinutes}
         min={1}
         max={60}
       ></ReactSlider>
-      <label className="pomodoro-label">Break Duration - Minutes:</label>
+      <label className="pomodoro-label">
+        Break Duration - Minutes: {settingsInfo.breakMinutes}
+      </label>
       <ReactSlider
         className="slider-break"
         thumbClassName="slider-thumb"
         trackClassName="slider-track"
-        value={5}
+        value={settingsInfo.breakMinutes}
         min={1}
         max={60}
       ></ReactSlider>
