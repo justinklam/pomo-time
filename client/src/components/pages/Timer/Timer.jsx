@@ -30,7 +30,7 @@ const Timer = () => {
       <PlayButton />
       <PauseButton />
       <div className="timer-settings">
-        <Link to="/">
+        <Link to="settings">
           <SettingsButton />
         </Link>
       </div>
