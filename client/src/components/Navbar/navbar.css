@@ -138,12 +138,12 @@
     transition: 250ms;
   }
 
-  button {
+  .sign-up-btn {
     display: none;
   }
 }
 
-.btn {
+.sign-up-btn {
   background-color: #1880ee;
   padding: 8px 20px;
   border-radius: 4px;
@@ -154,7 +154,7 @@
   cursor: pointer;
 }
 
-.btn:hover {
+.sign-up-btn:hover {
   padding: 6px 18px;
   border-radius: 4px;
   border: 2px solid #1880ee;
