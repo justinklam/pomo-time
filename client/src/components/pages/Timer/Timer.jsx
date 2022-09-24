@@ -8,6 +8,7 @@ import "react-circular-progressbar/dist/styles.css";
 // Components
 import PlayButton from "../../PlayButton/PlayButton";
 import PauseButton from "../../PauseButton/PauseButton";
+import SettingsButton from "../../SettingsButton/SettingsButton";
 
 const Timer = () => {
   const percentage = 60;
@@ -27,6 +28,7 @@ const Timer = () => {
       />
       <PlayButton />
       <PauseButton />
+      <SettingsButton />
     </div>
   );
 };
