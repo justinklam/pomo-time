@@ -28,7 +28,7 @@ const Navbar = () => {
         </li>
         <li className="nav-item">
           <Link to="/timer" className="nav-links" onClick={closeMobileMenu}>
-            Timer <i class="fa-solid fa-clock"></i>
+            Timer <i className="fa-solid fa-clock"></i>
           </Link>
         </li>
         <li className="nav-item">
