@@ -1,5 +1,6 @@
 import React from "react";
 import "./timer.css";
+import { Link } from "react-router-dom";
 
 // React Circular Progress bar
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
@@ -28,7 +29,9 @@ const Timer = () => {
       />
       <PlayButton />
       <PauseButton />
-      <SettingsButton />
+      <Link to="/">
+        <SettingsButton />
+      </Link>
     </div>
   );
 };
