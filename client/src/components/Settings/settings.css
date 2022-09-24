@@ -5,11 +5,27 @@
 label {
   display: block;
   color: #fff;
+  margin: 40px 0px 20px 0px;
 }
 
 .slider {
-  height: 40px;
-  border: 2px solid rgb(182, 5, 5);
+  height: 43px;
+  width: 45vh;
+  border: 2px solid #fff;
   border-radius: 20px;
-  width: 40vh;
+}
+
+.slider-break {
+  height: 43px;
+  width: 45vh;
+  border: 2px solid #fff;
+  border-radius: 20px;
+}
+
+.slider-thumb {
+  height: 40px;
+  width: 40px;
+  background-color: rgb(182, 5, 5);
+  border-radius: 20px;
+  cursor: pointer;
 }
