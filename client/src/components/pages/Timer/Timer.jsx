@@ -29,9 +29,11 @@ const Timer = () => {
       />
       <PlayButton />
       <PauseButton />
-      <Link to="/">
-        <SettingsButton />
-      </Link>
+      <div className="timer-settings">
+        <Link to="/">
+          <SettingsButton />
+        </Link>
+      </div>
     </div>
   );
 };
