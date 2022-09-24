@@ -12,7 +12,7 @@ const Navbar = () => {
   const closeMobileMenu = () => setClick(false);
 
   return (
-    <nav className="navbar">
+    <nav className="navbar-container">
       <Link to="/" className="navbar-logo">
         Pomo-Time
       </Link>
