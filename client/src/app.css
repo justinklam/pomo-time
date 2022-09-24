@@ -5,13 +5,14 @@
   font-family: "PT Sans", sans-serif;
 }
 
-a {
-  text-decoration: none;
-}
-
 .main-container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
+
+  padding-top: 50px;
+  max-width: 340px;
+  margin: 0 auto;
+  text-align: center;
 }
