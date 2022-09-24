@@ -7,6 +7,7 @@ import Home from "./components/pages/Home/Home";
 import Timer from "./components/pages/Timer/Timer";
 import Contact from "./components/pages/Contact/Contact";
 import SignUp from "./components/pages/SignUp/SignUp";
+import Settings from "./components/pages/Settings/Settings";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path="/sign-up">
             <Route index element={<SignUp />} />
+          </Route>
+          <Route path="/settings">
+            <Route index element={<Settings />} />
           </Route>
         </Routes>
       </div>
