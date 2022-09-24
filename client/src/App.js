@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/pages/Home/Home";
 import Timer from "./components/pages/Timer/Timer";
 import SignUp from "./components/pages/SignUp/SignUp";
-import Settings from "./components/pages/Settings/Settings";
+import Settings from "./components/Settings/Settings";
 
 function App() {
   return (
