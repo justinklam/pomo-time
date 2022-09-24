@@ -5,7 +5,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/pages/Home/Home";
 import Timer from "./components/pages/Timer/Timer";
-import Contact from "./components/pages/Contact/Contact";
 import SignUp from "./components/pages/SignUp/SignUp";
 import Settings from "./components/pages/Settings/Settings";
 
@@ -20,9 +19,6 @@ function App() {
           </Route>
           <Route path="/timer">
             <Route index element={<Timer />} />
-          </Route>
-          <Route path="/contact">
-            <Route index element={<Contact />} />
           </Route>
           <Route path="/sign-up">
             <Route index element={<SignUp />} />
