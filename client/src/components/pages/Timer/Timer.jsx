@@ -34,7 +34,9 @@ const Timer = () => {
       <PauseButton />
       <div className="timer-settings">
         <Link to="/settings">
-          <SettingsContext.Provider value={{}}>
+          <SettingsContext.Provider
+            value={{ workMinutes: 45, breakMinutes: 15 }}
+          >
             <SettingsButton />
           </SettingsContext.Provider>
         </Link>

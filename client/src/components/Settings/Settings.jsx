@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./settings.css";
+// Use Context
+import SettingsContext from "../../context/SettingsContext";
+
+// Components
 import ReactSlider from "react-slider";
 
 const Settings = () => {
+  const context = useContext(SettingsContext);
+
   return (
     <div className="settings-container">
       <label className="pomodoro-label">Work Duration - Minutes:</label>
