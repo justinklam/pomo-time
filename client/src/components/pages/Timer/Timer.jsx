@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./timer.css";
 
 // React Router Dom
@@ -14,6 +14,8 @@ import PauseButton from "../../PauseButton/PauseButton";
 import SettingsButton from "../../SettingsButton/SettingsButton";
 
 const Timer = () => {
+  const [isPaused, setIsPaused] = useState(true);
+
   const percentage = 60;
   // const red = "#f54e4e";
   // const green = "#4aec8c";
@@ -29,8 +31,9 @@ const Timer = () => {
         })}
         text={`${percentage}%`}
       />
-      <PlayButton />
-      <PauseButton />
+
+      {isPaused ? <PlayButton /> : <PauseButton />}
+
       <div className="timer-settings">
         <Link to="/settings">
           <SettingsButton />
