@@ -26,7 +26,7 @@ const Timer = () => {
   // useRef for persistant variables on reload
   const secondsLeftRef = useRef(secondsLeft);
   const isPausedRef = useRef(isPaused);
-  const modeRef = useRef(timerMode);
+  const timerModeRef = useRef(timerMode);
 
   const timerTracker = () => {
     setSecondsLeft(settingsInfo.workminutes * 60);
@@ -39,10 +39,11 @@ const Timer = () => {
         ? settingsInfo.workMinutes * 60
         : settingsInfo.breakMinute * 60;
 
-    setTimerMode(timerMode.current);
-    timerMode.current = modeStatus;
+    setTimerMode(modeStatus);
+    timerModeRef.current = modeStatus;
 
-    secondsLeft.current = timeLeft;
+    setSecondsLeft(timeLeft);
+    secondsLeftRef.current = timeLeft;
   };
 
   const countdown = () => {
