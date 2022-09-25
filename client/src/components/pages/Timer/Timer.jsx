@@ -23,6 +23,11 @@ const Timer = () => {
   const [isPaused, setIsPaused] = useState(true);
   const [secondsLeft, setSecondsLeft] = useState(0);
 
+  // useRef for persistant variables on reload
+  const secondsLeftRef = useRef(secondsLeft);
+  const isPausedRef = useRef(isPaused);
+  const modeRef = useRef(timerMode);
+
   const timerTracker = () => {
     setSecondsLeft(settingsInfo.workminutes * 60);
   };
@@ -50,6 +55,7 @@ const Timer = () => {
       if (secondsLeft === 0) {
         return switchMode();
       }
+      countdown();
     });
   }, [settingsInfo]);
 
