@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./app.css";
 
 // React Router Dom
@@ -14,8 +15,13 @@ import SignUp from "./components/pages/SignUp/SignUp";
 import Settings from "./components/Settings/Settings";
 
 function App() {
+  const [workMinutes, setWorkMinutes] = useState(45);
+  const [breakMinutes, setBreakMinutes] = useState(15);
+
   return (
-    <SettingsContext.Provider value={{ workMinutes: 45, breakMinutes: 15 }}>
+    <SettingsContext.Provider
+      value={{ workMinutes: workMinutes, breakMinutes: breakMinutes }}
+    >
       <BrowserRouter>
         <Navbar />
         <div className="main-container">
