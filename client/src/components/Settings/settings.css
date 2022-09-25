@@ -30,3 +30,7 @@ label {
   border-radius: 20px;
   cursor: pointer;
 }
+
+.back-btn-container {
+  text-align: center;
+}
