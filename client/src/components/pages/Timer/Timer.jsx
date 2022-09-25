@@ -33,26 +33,30 @@ const Timer = () => {
   };
 
   const switchMode = () => {
-    const modeStatus = timerMode === "work" ? "break" : "work";
-    setTimerMode(modeStatus);
-    setSecondsLeft(
+    const modeStatus = timerMode.current === "work" ? "break" : "work";
+    const timeLeft =
       modeStatus === "work"
         ? settingsInfo.workMinutes * 60
-        : settingsInfo.breakMinute * 60
-    );
+        : settingsInfo.breakMinute * 60;
+
+    setTimerMode(timerMode.current);
+    timerMode.current = modeStatus;
+
+    secondsLeft.current = timeLeft;
   };
 
   const countdown = () => {
-    setSecondsLeft(secondsLeft - 1);
+    secondsLeftRef.current--;
+    setSecondsLeft(secondsLeftRef.current);
   };
 
   useEffect(() => {
     timerTracker();
     setInterval(() => {
-      if (isPaused) {
+      if (isPausedRef.current) {
         return;
       }
-      if (secondsLeft === 0) {
+      if (secondsLeftRef.current === 0) {
         return switchMode();
       }
       countdown();
