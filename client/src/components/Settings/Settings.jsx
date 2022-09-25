@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
 import "./settings.css";
 
+// React Router Dom
+import { Link } from "react-router-dom";
+
 // Use Context
 import SettingsContext from "../../context/SettingsContext";
 
@@ -38,7 +41,9 @@ const Settings = () => {
         max={60}
         onChange={(newValue) => settingsInfo.setBreakMinutes(newValue)}
       ></ReactSlider>
-      <BackButton />
+      <Link to="/timer">
+        <BackButton />
+      </Link>
     </div>
   );
 };
