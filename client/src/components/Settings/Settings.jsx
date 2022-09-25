@@ -23,6 +23,7 @@ const Settings = () => {
         value={settingsInfo.workMinutes}
         min={1}
         max={60}
+        onChange={(newValue) => settingsInfo.setWorkMinutes(newValue)}
       ></ReactSlider>
       <label className="pomodoro-label">
         Break Duration: {settingsInfo.breakMinutes} Minutes
@@ -34,6 +35,7 @@ const Settings = () => {
         value={settingsInfo.breakMinutes}
         min={1}
         max={60}
+        onChange={(newValue) => settingsInfo.setBreakMinutes(newValue)}
       ></ReactSlider>
     </div>
   );

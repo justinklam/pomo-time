@@ -20,7 +20,7 @@ function App() {
 
   return (
     <SettingsContext.Provider
-      value={{ workMinutes: workMinutes, breakMinutes: breakMinutes }}
+      value={{ workMinutes, breakMinutes, setWorkMinutes, setBreakMinutes }}
     >
       <BrowserRouter>
         <Navbar />
