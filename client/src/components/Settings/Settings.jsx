@@ -13,7 +13,7 @@ const Settings = () => {
   return (
     <div className="settings-container">
       <label className="pomodoro-label">
-        Work Duration - Minutes: {settingsInfo.workMinutes}
+        Work Duration: {settingsInfo.workMinutes} Minutes
       </label>
       <ReactSlider
         className="slider"
@@ -25,7 +25,7 @@ const Settings = () => {
         max={60}
       ></ReactSlider>
       <label className="pomodoro-label">
-        Break Duration - Minutes: {settingsInfo.breakMinutes}
+        Break Duration: {settingsInfo.breakMinutes} Minutes
       </label>
       <ReactSlider
         className="slider-break"
