@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./timer.css";
 
 // React Router Dom
@@ -17,10 +17,41 @@ import PauseButton from "../../PauseButton/PauseButton";
 import SettingsButton from "../../SettingsButton/SettingsButton";
 
 const Timer = () => {
-  const [isPaused, setIsPaused] = useState(true);
   const settingsInfo = useContext(SettingsContext);
 
-  useEffect(() => {}, [settingsInfo]);
+  const [timerMode, setTimerMode] = useState("work");
+  const [isPaused, setIsPaused] = useState(true);
+  const [secondsLeft, setSecondsLeft] = useState(0);
+
+  const timerTracker = () => {
+    setSecondsLeft(settingsInfo.workminutes * 60);
+  };
+
+  const switchMode = () => {
+    const modeStatus = timerMode === "work" ? "break" : "work";
+    setTimerMode(modeStatus);
+    setSecondsLeft(
+      modeStatus === "work"
+        ? settingsInfo.workMinutes * 60
+        : settingsInfo.breakMinute * 60
+    );
+  };
+
+  const countdown = () => {
+    setSecondsLeft(secondsLeft - 1);
+  };
+
+  useEffect(() => {
+    timerTracker();
+    setInterval(() => {
+      if (isPaused) {
+        return;
+      }
+      if (secondsLeft === 0) {
+        return switchMode();
+      }
+    });
+  }, [settingsInfo]);
 
   const percentage = 60;
   // const red = "#f54e4e";
