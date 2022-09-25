@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./timer.css";
 
 // React Router Dom
 import { Link } from "react-router-dom";
+
+// Context
+import SettingsContext from "../../../context/SettingsContext";
 
 // React Circular Progress bar
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
@@ -15,6 +18,9 @@ import SettingsButton from "../../SettingsButton/SettingsButton";
 
 const Timer = () => {
   const [isPaused, setIsPaused] = useState(true);
+  const settingsInfo = useContext(SettingsContext);
+
+  useEffect(() => {}, [settingsInfo]);
 
   const percentage = 60;
   // const red = "#f54e4e";
