@@ -92,7 +92,21 @@ const Timer = () => {
         })}
       />
 
-      {isPaused ? <PlayButton /> : <PauseButton />}
+      {isPaused ? (
+        <PlayButton
+          onClick={() => {
+            setIsPaused(false);
+            isPausedRef.current = false;
+          }}
+        />
+      ) : (
+        <PauseButton
+          onClick={() => {
+            setIsPaused(true);
+            isPausedRef.current = true;
+          }}
+        />
+      )}
 
       <div className="timer-settings">
         <Link to="/settings">
