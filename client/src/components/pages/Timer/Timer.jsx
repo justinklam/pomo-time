@@ -28,32 +28,33 @@ const Timer = () => {
   const isPausedRef = useRef(isPaused);
   const timerModeRef = useRef(timerMode);
 
-  const timerTracker = () => {
-    setSecondsLeft(settingsInfo.workminutes * 60);
-  };
-
-  const switchMode = () => {
-    const modeStatus = timerMode.current === "work" ? "break" : "work";
-    const timeLeft =
-      modeStatus === "work"
-        ? settingsInfo.workMinutes * 60
-        : settingsInfo.breakMinute * 60;
-
-    setTimerMode(modeStatus);
-    timerModeRef.current = modeStatus;
-
-    setSecondsLeft(timeLeft);
-    secondsLeftRef.current = timeLeft;
-  };
-
+  // Timer Countdown
   const countdown = () => {
     secondsLeftRef.current--;
     setSecondsLeft(secondsLeftRef.current);
   };
 
   useEffect(() => {
-    timerTracker();
-    setInterval(() => {
+    // Mode Switch
+    const switchMode = () => {
+      const modeStatus = timerMode.current === "work" ? "break" : "work";
+      const timeLeft =
+        modeStatus === "work"
+          ? settingsInfo.workMinutes * 60
+          : settingsInfo.breakMinute * 60;
+
+      setTimerMode(modeStatus);
+      timerModeRef.current = modeStatus;
+
+      setSecondsLeft(timeLeft);
+      secondsLeftRef.current = timeLeft;
+    };
+
+    // Set Current Time Left
+    secondsLeftRef.current = settingsInfo.workMinutes * 60;
+    setSecondsLeft(secondsLeftRef.current);
+
+    const interval = setInterval(() => {
       if (isPausedRef.current) {
         return;
       }
@@ -61,10 +62,21 @@ const Timer = () => {
         return switchMode();
       }
       countdown();
-    });
-  }, [settingsInfo]);
+    }, 1000);
 
-  const percentage = 60;
+    return () => clearInterval(interval);
+  }, [settingsInfo, timerMode]);
+
+  const totalSeconds =
+    timerMode === "work"
+      ? settingsInfo.workMinutes * 60
+      : settingsInfo.breakMinutes * 60;
+
+  const percentage = Math.round((secondsLeft / totalSeconds) * 100);
+  const minutes = Math.floor(secondsLeft / 60);
+  let seconds = secondsLeft % 60;
+  if (seconds < 10) seconds = "0" + seconds;
+
   // const red = "#f54e4e";
   // const green = "#4aec8c";
 
@@ -72,12 +84,12 @@ const Timer = () => {
     <div className="timer-progress">
       <CircularProgressbar
         value={percentage}
+        text={minutes + ":" + seconds}
         styles={buildStyles({
           textColor: "#fff",
-          pathColor: "#f54e4e",
+          pathColor: timerMode === "work" ? "#f54e4e" : "#4aec8c",
           tailColor: "rgba(255, 255, 255, .2) ",
         })}
-        text={`${percentage}%`}
       />
 
       {isPaused ? <PlayButton /> : <PauseButton />}
