@@ -85,6 +85,7 @@ const Timer = () => {
       <CircularProgressbar
         value={percentage}
         text={minutes + ":" + seconds}
+        counterClockwise={true}
         styles={buildStyles({
           textColor: "#fff",
           pathColor: timerMode === "work" ? "#f54e4e" : "#4aec8c",
