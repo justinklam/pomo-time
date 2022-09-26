@@ -19,9 +19,11 @@ import SettingsButton from "../../buttons/SettingsButton/SettingsButton";
 const Timer = () => {
   const settingsInfo = useContext(SettingsContext);
 
-  const [workStatus, setWorkStatus] = useState(false);
-  const [timeRunning, setTimeRunning] = useState(false);
-  const [resetting, setResetting] = useState(false);
+  // work or break mode
+  const [workStatus, setWorkStatus] = useState("work");
+  // whether timer is running
+  const [timerActive, setTimerActive] = useState(false);
+  // const [resetting, setResetting] = useState(false);
 
   // useRef for persistant variables
   // const workStatusRef = useRef(workStatus);
@@ -38,33 +40,22 @@ const Timer = () => {
   const [breakTime, setBreakTime] = useState(settingsInfo.breakMinutes * 60);
 
   useEffect(() => {
-    if (timeRunning) {
+    if (timerActive) {
       // updates the timer
       let interval = setInterval(() => {
         clearInterval(interval);
 
-        // handles the reset button
-        // if (resetting) {
-        //   setCurrentSeconds(currentSeconds);
-        //   setTimeRunning(false);
-        //   setResetting(false);
-        //   return;
-        // }
-
-        // if (!workStatus) {
-        //   // setCurrentSeconds(settingsInfo.breakMinutes * 60);
-        //   setTimeRunning(true);
-        //   setWorkStatus(true);
-        // }
-        // when timer reaches 0
-        if (currentSeconds === 0) {
-          if (workStatus) {
-            setTimeRunning(false);
-            setWorkStatus(false); // hide the break
-            setCurrentSeconds(settingsInfo.breakMinutes * 60); // reset initial timer
-          } else {
-            setTimeRunning(false);
-            setWorkStatus(true);
+        // work timer reaches 0, switch to breakMinutes
+        if (currentSeconds === 0 && workStatus === "work") {
+          setTimerActive(false);
+          setWorkStatus("break"); // hide the break
+          setCurrentSeconds(settingsInfo.breakMinutes * 60);
+          setMaxSeconds(settingsInfo.breakMinutes * 60);
+        } else if (currentSeconds === 0 && workStatus === "break") {
+          // break-timer reaches 0, switch to workMinutes
+          if (currentSeconds === 0 && workStatus === "break") {
+            setTimerActive(false);
+            setWorkStatus("work");
             setCurrentSeconds(settingsInfo.workMinutes * 60);
             setMaxSeconds(settingsInfo.workMinutes * 60);
           }
@@ -73,7 +64,7 @@ const Timer = () => {
         }
       }, 10); // 1000 = 25 min, 100 = 2.5 min total time
     }
-  }, [currentSeconds, timeRunning, settingsInfo, resetting, workStatus]);
+  }, [currentSeconds, timerActive, settingsInfo, workStatus]);
 
   const formatTime = () => {
     let minutes = Math.floor(currentSeconds / 60);
@@ -96,21 +87,18 @@ const Timer = () => {
         })}
       />
 
-      {!workStatus ? (
+      {!timerActive ? (
         <PlayButton
           onClick={() => {
-            setTimeRunning(true);
-            setWorkStatus(true);
+            setTimerActive(true);
             console.log("PlayButton");
-            console.log("timeRunning", timeRunning);
+            console.log("timerActive", timerActive);
           }}
         />
       ) : (
         <PauseButton
           onClick={() => {
-            setTimeRunning(false);
-            // setResetting(true);
-            setWorkStatus(false);
+            setTimerActive(false);
             console.log("PauseButton");
           }}
         />
