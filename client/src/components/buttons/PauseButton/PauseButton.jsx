@@ -3,7 +3,7 @@ import "./pauseButton.css";
 
 const PauseButton = (props) => {
   return (
-    <button className="pause-btn">
+    <button className="pause-btn" {...props}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

@@ -12,70 +12,89 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
 // Components
-import PlayButton from "../../PlayButton/PlayButton";
-import PauseButton from "../../PauseButton/PauseButton";
-import SettingsButton from "../../SettingsButton/SettingsButton";
+import PlayButton from "../../buttons/PlayButton/PlayButton";
+import PauseButton from "../../buttons/PauseButton/PauseButton";
+import SettingsButton from "../../buttons/SettingsButton/SettingsButton";
 
 const Timer = () => {
   const settingsInfo = useContext(SettingsContext);
 
   const [timerMode, setTimerMode] = useState("work");
-  const [isPaused, setIsPaused] = useState(true);
-  const [secondsLeft, setSecondsLeft] = useState(0);
+  const [currentSeconds, setCurrentSeconds] = useState(
+    settingsInfo.workMinutes * 60
+  );
+  const [maxSeconds, setMaxSeconds] = useState(settingsInfo.workMinutes * 60);
+  const [breakTime, setBreakTime] = useState(settingsInfo.breakMinutes * 60);
+  const [timeRunning, setTimeRunning] = useState(false);
+  const [resetting, setResetting] = useState(false);
 
   // useRef for persistant variables on reload
-  const secondsLeftRef = useRef(secondsLeft);
-  const isPausedRef = useRef(isPaused);
+  const maxSecondsRef = useRef(maxSeconds);
+  const timeRunningRef = useRef(timeRunning);
   const timerModeRef = useRef(timerMode);
 
-  // Timer Countdown
-  const countdown = () => {
-    secondsLeftRef.current--;
-    setSecondsLeft(secondsLeftRef.current);
+  useEffect(
+    () => {
+      // Mode Switch
+      // const switchMode = () => {
+      //   const modeStatus = timerMode.current === "work" ? "break" : "work";
+      //   const timeLeft =
+      //     modeStatus === "work"
+      //       ? settingsInfo.workMinutes * 60
+      //       : settingsInfo.breakMinute * 60;
+
+      //   setTimerMode(modeStatus);
+      //   timerModeRef.current = modeStatus;
+
+      //   setSecondsLeft(timeLeft);
+      //   secondsLeftRef.current = timeLeft;
+      // };
+
+      if (timeRunning) {
+        //updates the timer
+        let interval = setInterval(() => {
+          // NOTE: must clear interval! otherwise bad practice
+          clearInterval(interval);
+
+          // handles the reset button
+          if (resetting) {
+            setCurrentSeconds(settingsInfo.workMinutes * 60);
+            setTimeRunning(false);
+            setResetting(false);
+            return;
+          }
+          if (currentSeconds === 0) {
+            // break timer is running
+            // setTimeRunning(false);
+            setCurrentSeconds(breakTime);
+            setMaxSeconds(breakTime);
+          } else {
+            setCurrentSeconds(currentSeconds - 1); // initial timer normal countdown
+          }
+        }, 1000); // 1000 = 25 min, 100 = 2.5 min total time
+      }
+    },
+    [currentSeconds, timeRunning],
+    settingsInfo
+  );
+
+  // const totalSeconds =
+  //   timerMode === "work"
+  //     ? settingsInfo.workMinutes * 60
+  //     : settingsInfo.breakMinutes * 60;
+
+  const formatTime = () => {
+    let minutes = Math.floor(currentSeconds / 60);
+    minutes = minutes < 10 ? `0${minutes}` : minutes;
+    let seconds = currentSeconds % 60;
+    seconds = seconds < 10 ? `0${seconds}` : seconds;
+    return `${minutes}:${seconds}`;
   };
 
-  useEffect(() => {
-    // Mode Switch
-    const switchMode = () => {
-      const modeStatus = timerMode.current === "work" ? "break" : "work";
-      const timeLeft =
-        modeStatus === "work"
-          ? settingsInfo.workMinutes * 60
-          : settingsInfo.breakMinute * 60;
-
-      setTimerMode(modeStatus);
-      timerModeRef.current = modeStatus;
-
-      setSecondsLeft(timeLeft);
-      secondsLeftRef.current = timeLeft;
-    };
-
-    // Set Current Time Left
-    secondsLeftRef.current = settingsInfo.workMinutes * 60;
-    setSecondsLeft(secondsLeftRef.current);
-
-    const interval = setInterval(() => {
-      if (isPausedRef.current) {
-        return;
-      }
-      if (secondsLeftRef.current === 0) {
-        return switchMode();
-      }
-      countdown();
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [settingsInfo, timerMode]);
-
-  const totalSeconds =
-    timerMode === "work"
-      ? settingsInfo.workMinutes * 60
-      : settingsInfo.breakMinutes * 60;
-
-  const percentage = Math.round((secondsLeft / totalSeconds) * 100);
-  const minutes = Math.floor(secondsLeft / 60);
-  let seconds = secondsLeft % 60;
-  if (seconds < 10) seconds = "0" + seconds;
+  // const percentage = Math.round((secondsLeft / totalSeconds) * 100);
+  // const minutes = Math.floor(secondsLeft / 60);
+  // let seconds = secondsLeft % 60;
+  // if (seconds < 10) seconds = "0" + seconds;
 
   // const red = "#f54e4e";
   // const green = "#4aec8c";
@@ -83,8 +102,8 @@ const Timer = () => {
   return (
     <div className="timer-progress">
       <CircularProgressbar
-        value={percentage}
-        text={minutes + ":" + seconds}
+        value={(currentSeconds / maxSeconds) * 100}
+        text={formatTime()}
         counterClockwise={true}
         styles={buildStyles({
           textColor: "#fff",
@@ -93,18 +112,25 @@ const Timer = () => {
         })}
       />
 
-      {isPaused ? (
+      {!timeRunning ? (
         <PlayButton
+          // onClick={() => {
+          //   // setIsPaused(false);
+          //   // isPausedRef.current = false;
+          // }}
           onClick={() => {
-            setIsPaused(false);
-            isPausedRef.current = false;
+            setTimeRunning(true);
           }}
         />
       ) : (
         <PauseButton
+          // onClick={() => {
+          //   // setIsPaused(true);
+          //   // isPausedRef.current = true;
+          // }}
           onClick={() => {
-            setIsPaused(true);
-            isPausedRef.current = true;
+            setResetting(true);
+            setTimeRunning(false);
           }}
         />
       )}
