@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./timer.css";
 
 // React Router Dom
@@ -19,25 +19,19 @@ import SettingsButton from "../../buttons/SettingsButton/SettingsButton";
 const Timer = () => {
   const settingsInfo = useContext(SettingsContext);
 
-  // work or break mode
-  const [workStatus, setWorkStatus] = useState("work");
   // whether timer is running
   const [timerActive, setTimerActive] = useState(false);
-  // const [resetting, setResetting] = useState(false);
-
-  // useRef for persistant variables
-  // const workStatusRef = useRef(workStatus);
-
-  console.log("workstatus", workStatus);
+  // work or break mode
+  const [workStatus, setWorkStatus] = useState("Work Time");
 
   // current countdown time
   const [currentSeconds, setCurrentSeconds] = useState(
     settingsInfo.workMinutes * 60
   );
-  // max work time
+  // max work time length
   const [maxSeconds, setMaxSeconds] = useState(settingsInfo.workMinutes * 60);
-  // break time
-  const [breakTime, setBreakTime] = useState(settingsInfo.breakMinutes * 60);
+  // break time length
+  // const [breakTime, setBreakTime] = useState(settingsInfo.breakMinutes * 60);
 
   useEffect(() => {
     if (timerActive) {
@@ -46,21 +40,22 @@ const Timer = () => {
         clearInterval(interval);
 
         // work timer reaches 0, switch to breakMinutes
-        if (currentSeconds === 0 && workStatus === "work") {
+        if (currentSeconds === 0 && workStatus === "Work Time") {
           setTimerActive(false);
-          setWorkStatus("break"); // hide the break
+          setWorkStatus("Break Time");
           setCurrentSeconds(settingsInfo.breakMinutes * 60);
           setMaxSeconds(settingsInfo.breakMinutes * 60);
-        } else if (currentSeconds === 0 && workStatus === "break") {
+        } else if (currentSeconds === 0 && workStatus === "Break Time") {
           // break-timer reaches 0, switch to workMinutes
-          if (currentSeconds === 0 && workStatus === "break") {
+          if (currentSeconds === 0 && workStatus === "Break Time") {
             setTimerActive(false);
-            setWorkStatus("work");
+            setWorkStatus("Work Time");
             setCurrentSeconds(settingsInfo.workMinutes * 60);
             setMaxSeconds(settingsInfo.workMinutes * 60);
           }
         } else {
-          setCurrentSeconds(currentSeconds - 1); // initial timer normal countdown
+          // decrement timer
+          setCurrentSeconds(currentSeconds - 1);
         }
       }, 10); // 1000 = 25 min, 100 = 2.5 min total time
     }
@@ -76,13 +71,14 @@ const Timer = () => {
 
   return (
     <div className="timer-progress">
+      <div className="timer-status">{workStatus}</div>
       <CircularProgressbar
         value={(currentSeconds / maxSeconds) * 100}
         text={formatTime()}
         counterClockwise={true}
         styles={buildStyles({
           textColor: "#fff",
-          pathColor: workStatus ? "red" : "#1888ff",
+          pathColor: workStatus === "Work Time" ? "red" : "#1888ff",
           tailColor: "rgba(255, 255, 255, .2) ",
         })}
       />
@@ -91,15 +87,12 @@ const Timer = () => {
         <PlayButton
           onClick={() => {
             setTimerActive(true);
-            console.log("PlayButton");
-            console.log("timerActive", timerActive);
           }}
         />
       ) : (
         <PauseButton
           onClick={() => {
             setTimerActive(false);
-            console.log("PauseButton");
           }}
         />
       )}
