@@ -147,7 +147,7 @@
 }
 
 .sign-up-btn {
-  background-color: #1880ee;
+  background-color: var(--accent-color);
   padding: 8px 20px;
   border-radius: 4px;
   border: none;
@@ -163,13 +163,13 @@
 .sign-up-btn:hover {
   padding: 6px 18px;
   border-radius: 4px;
-  border: 2px solid #1880ee;
+  border: 2px solid var(--accent-color);
   color: #1888ff;
   background: var(--text-color);
 }
 
 .login-btn {
-  background-color: #1880ee;
+  background-color: var(--accent-color);
   padding: 8px 20px;
   border-radius: 4px;
   border: none;
@@ -184,7 +184,7 @@
 .login-btn:hover {
   padding: 6px 18px;
   border-radius: 4px;
-  border: 2px solid #1880ee;
+  border: 2px solid var(--accent-color);
   color: #1888ff;
   background: var(--text-color);
 }
