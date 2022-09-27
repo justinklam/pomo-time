@@ -76,7 +76,7 @@ const Timer = () => {
         counterClockwise={true}
         styles={buildStyles({
           textColor: "var(--text-color)",
-          pathColor: workStatus === "Work Time" ? "red" : "#1888ff",
+          pathColor: workStatus === "Work Time" ? "red" : "var(--accent-color)",
           tailColor: "rgba(255, 255, 255, .2) ",
         })}
       />

@@ -3,7 +3,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  background-color: #000734;
+  background-color: var(--primary-color);
   border: 1px solid var(--accent-color);
   padding: 10px;
 }
@@ -49,6 +49,6 @@
 
 .login-button:hover {
   border-radius: 4px;
-  color: #1888ff;
+  color: var(--accent-color);
   background: var(--text-color);
 }

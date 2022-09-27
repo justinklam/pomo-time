@@ -39,7 +39,7 @@
 }
 
 .nav-links:hover {
-  background-color: #1888ff;
+  background-color: var(--accent-color);
   border-radius: 4px;
   transition: all 0.2s ease-out;
 }
@@ -89,7 +89,7 @@
   }
 
   .nav-links:hover {
-    background-color: #1888ff;
+    background-color: var(--accent-color);
     border-radius: 0;
   }
 
@@ -125,7 +125,7 @@
     margin: 2rem auto;
     border-radius: 4px;
     width: 80%;
-    background: #1888ff;
+    background: var(--accent-color);
     text-decoration: none;
     color: var(--text-color);
     font-size: 1.5rem;
@@ -133,7 +133,7 @@
 
   .nav-links-mobile:hover {
     background: var(--text-color);
-    color: #1888ff;
+    color: var(--accent-color);
     transition: 250ms;
   }
 
@@ -164,7 +164,7 @@
   padding: 6px 18px;
   border-radius: 4px;
   border: 2px solid var(--accent-color);
-  color: #1888ff;
+  color: var(--accent-color);
   background: var(--text-color);
 }
 
@@ -185,6 +185,6 @@
   padding: 6px 18px;
   border-radius: 4px;
   border: 2px solid var(--accent-color);
-  color: #1888ff;
+  color: var(--accent-color);
   background: var(--text-color);
 }
