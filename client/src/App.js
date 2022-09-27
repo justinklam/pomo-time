@@ -12,6 +12,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/pages/Home/Home";
 import Timer from "./components/pages/Timer/Timer";
 import SignUp from "./components/pages/SignUp/SignUp";
+import Login from "./components/pages/Login/Login";
 import Settings from "./components/Settings/Settings";
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
             </Route>
             <Route path="/sign-up">
               <Route index element={<SignUp />} />
+            </Route>
+            <Route path="/login">
+              <Route index element={<Login />} />
             </Route>
             <Route path="/settings">
               <Route index element={<Settings />} />
