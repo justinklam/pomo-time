@@ -1,7 +1,9 @@
 import mongoose from "mongoose";
-import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+
+// Models
+import User from "../models/User.js";
 
 // Helper Functions
 import { createError } from "../helpers/error.js";
