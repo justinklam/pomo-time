@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./login.css";
+import axios from "axios";
 
 const Login = () => {
   const [name, setName] = useState("");
@@ -8,7 +9,15 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log(name, email, password);
+    try {
+      const res = await axios.post("http://localhost:8080/api/auth/signin", {
+        name,
+        password,
+      });
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleSignUp = async (e) => {
