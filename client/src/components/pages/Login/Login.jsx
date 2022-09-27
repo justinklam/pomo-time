@@ -11,7 +11,7 @@ const Login = () => {
     console.log(name, email, password);
   };
 
-  const handleRegister = async (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     console.log(name, email, password);
   };
@@ -57,7 +57,7 @@ const Login = () => {
           className="login-input"
           onChange={(e) => setPassword(e.target.value)}
         ></input>
-        <button className="login-button" onClick={handleRegister}>
+        <button className="login-button" onClick={handleSignUp}>
           Sign Up
         </button>
       </form>
