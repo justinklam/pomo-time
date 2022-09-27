@@ -28,7 +28,11 @@ const connect = () => {
 app.use(cookieParser());
 // to allow external json
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
 
 // Use Routes
 app.use("/api/users", userRoutes);
