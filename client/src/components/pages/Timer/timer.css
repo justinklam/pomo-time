@@ -2,6 +2,12 @@ body {
   background-color: #30384b;
 }
 
+.timer-status {
+  padding-bottom: 50px;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
 .timer-progress {
   padding-top: 50px;
   max-width: 340px;
