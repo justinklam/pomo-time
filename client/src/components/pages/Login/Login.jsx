@@ -19,8 +19,8 @@ const Login = () => {
         name,
         password,
       });
-      console.log(res.data);
       navigate(`/timer`);
+      console.log(res.data);
     } catch (err) {
       console.log(err);
     }
@@ -35,8 +35,8 @@ const Login = () => {
         email,
         password,
       });
-      console.log(res.data);
       navigate(`/timer`);
+      console.log(res.data);
     } catch (err) {
       console.log(err);
     }
