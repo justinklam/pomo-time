@@ -30,8 +30,6 @@ const Timer = () => {
   );
   // max work time length
   const [maxSeconds, setMaxSeconds] = useState(settingsInfo.workMinutes * 60);
-  // break time length
-  // const [breakTime, setBreakTime] = useState(settingsInfo.breakMinutes * 60);
 
   useEffect(() => {
     if (timerActive) {
