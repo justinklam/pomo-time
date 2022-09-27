@@ -6,7 +6,7 @@ body {
 .timer-status {
   padding-bottom: 50px;
   font-size: 1.5rem;
-  color: #fff;
+  color: var(--text-color);
 }
 
 .timer-progress {

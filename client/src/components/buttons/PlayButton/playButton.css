@@ -1,6 +1,6 @@
 .play-btn {
   background-color: transparent;
-  color: #fff;
+  color: var(--text-color);
   border: 0;
   width: 100px;
   margin-top: 20px;

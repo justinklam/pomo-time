@@ -8,21 +8,21 @@
 }
 
 label {
-  color: #fff;
+  color: var(--text-color);
   margin: 40px 0px 20px 0px;
 }
 
 .slider {
   height: 43px;
   width: 45vh;
-  border: 2px solid #fff;
+  border: 2px solid var(--text-color);
   border-radius: 20px;
 }
 
 .slider-break {
   height: 43px;
   width: 45vh;
-  border: 2px solid #fff;
+  border: 2px solid var(--text-color);
   border-radius: 20px;
 }
 

@@ -2,13 +2,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgb(0, 7, 52);
+  background: var(--primary-color);
   height: 100px;
   font-size: 1.2rem;
 }
 
 .navbar-logo {
-  color: #fff;
+  color: var(--text-color);
   justify-self: start;
   text-decoration: none;
   font-size: 2rem;
@@ -33,7 +33,7 @@
 }
 
 .nav-links {
-  color: #fff;
+  color: var(--text-color);
   text-decoration: none;
   padding: 0.5rem 1rem;
 }
@@ -45,7 +45,7 @@
 }
 
 .fa-bars {
-  color: #fff;
+  color: var(--text-color);
 }
 
 .nav-links-mobile {
@@ -114,7 +114,7 @@
 
   /* cross */
   .fa-times {
-    color: #fff;
+    color: var(--text-color);
     font-size: 2rem;
   }
 
@@ -127,12 +127,12 @@
     width: 80%;
     background: #1888ff;
     text-decoration: none;
-    color: #fff;
+    color: var(--text-color);
     font-size: 1.5rem;
   }
 
   .nav-links-mobile:hover {
-    background: #fff;
+    background: var(--text-color);
     color: #1888ff;
     transition: 250ms;
   }
@@ -156,7 +156,7 @@
   overflow: hidden;
   margin-right: 10px;
   font-size: 18px;
-  color: #fff;
+  color: var(--text-color);
   cursor: pointer;
 }
 
@@ -165,7 +165,7 @@
   border-radius: 4px;
   border: 2px solid #1880ee;
   color: #1888ff;
-  background: #fff;
+  background: var(--text-color);
 }
 
 .login-btn {
@@ -177,7 +177,7 @@
   white-space: nowrap;
   overflow: hidden;
   font-size: 18px;
-  color: #fff;
+  color: var(--text-color);
   cursor: pointer;
 }
 
@@ -186,5 +186,5 @@
   border-radius: 4px;
   border: 2px solid #1880ee;
   color: #1888ff;
-  background: #fff;
+  background: var(--text-color);
 }
