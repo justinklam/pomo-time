@@ -39,10 +39,20 @@ const Navbar = () => {
           >
             Sign Up
           </Link>
+          <Link
+            to="/login"
+            className="nav-links-mobile"
+            onClick={closeMobileMenu}
+          >
+            Login
+          </Link>
         </li>
       </ul>
       <Link to="/sign-up">
         <button className="sign-up-btn">Sign Up</button>
+      </Link>
+      <Link to="/login">
+        <button className="login-btn">Login</button>
       </Link>
     </nav>
   );
