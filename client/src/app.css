@@ -7,16 +7,16 @@
 }
 
 :root {
-  /* --background-color: #1a1f1d; */
-  /* --primary-color: #116466; */
-  /* --accent-color: #d9b08c; */
-  /* --text-color: #d1e8e2; */
-
   /* original colour scheme */
   --primary-color: #000734;
   --background-color: #1a1f1d;
   --accent-color: #1888ff;
   --text-color: #ffffff;
+
+  /* --background-color: #1a1f1d; */
+  /* --primary-color: #116466; */
+  /* --accent-color: #d9b08c; */
+  /* --text-color: #d1e8e2; */
 }
 
 .main-container {
