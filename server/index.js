@@ -1,7 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
+
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 // Routes
 import userRoutes from "./routes/users.js";
@@ -26,6 +28,7 @@ const connect = () => {
 app.use(cookieParser());
 // to allow external json
 app.use(express.json());
+app.use(cors());
 
 // Use Routes
 app.use("/api/users", userRoutes);
