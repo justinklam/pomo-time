@@ -11,7 +11,7 @@ import SettingsContext from "./context/SettingsContext";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/pages/Home/Home";
 import Timer from "./components/pages/Timer/Timer";
-import SignUp from "./components/pages/SignUp/SignUp";
+// import SignUp from "./components/pages/SignUp/SignUp";
 import Login from "./components/pages/Login/Login";
 import Settings from "./components/Settings/Settings";
 
@@ -33,9 +33,9 @@ function App() {
             <Route path="/timer">
               <Route index element={<Timer />} />
             </Route>
-            <Route path="/sign-up">
+            {/* <Route path="/sign-up">
               <Route index element={<SignUp />} />
-            </Route>
+            </Route> */}
             <Route path="/login">
               <Route index element={<Login />} />
             </Route>

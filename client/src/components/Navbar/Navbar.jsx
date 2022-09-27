@@ -32,13 +32,13 @@ const Navbar = () => {
           </Link>
         </li>
         <li className="nav-item">
-          <Link
+          {/* <Link
             to="/sign-up"
             className="nav-links-mobile"
             onClick={closeMobileMenu}
           >
             Sign Up
-          </Link>
+          </Link> */}
           <Link
             to="/login"
             className="nav-links-mobile"
@@ -48,9 +48,9 @@ const Navbar = () => {
           </Link>
         </li>
       </ul>
-      <Link to="/sign-up">
+      {/* <Link to="/sign-up">
         <button className="sign-up-btn">Sign Up</button>
-      </Link>
+      </Link> */}
       <Link to="/login">
         <button className="login-btn">Login</button>
       </Link>
