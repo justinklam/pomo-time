@@ -1,12 +1,19 @@
 import { render, screen } from "@testing-library/react";
-
 import { BrowserRouter } from "react-router-dom";
 
 // Component
 import SignUp from "../pages/SignUp/SignUp";
 
 describe("(Component) SignUp", () => {
-  it("Should render all key form elements", () => {
+  test("it should render /SignUp", () => {
+    render(
+      <BrowserRouter>
+        <SignUp />
+      </BrowserRouter>
+    );
+  });
+
+  test("it should render all key form elements", () => {
     render(
       <BrowserRouter>
         <SignUp />
