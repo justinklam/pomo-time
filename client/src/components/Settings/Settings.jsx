@@ -5,7 +5,7 @@ import "./settings.css";
 import { Link } from "react-router-dom";
 
 // Use Context
-import SettingsContext from "../../context/SettingsContext";
+import SettingsContext from "../../utils/SettingsContext";
 
 // Components
 import ReactSlider from "react-slider";

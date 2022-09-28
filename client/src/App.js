@@ -5,7 +5,7 @@ import "./app.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Context
-import SettingsContext from "./context/SettingsContext";
+import SettingsContext from "./utils/SettingsContext";
 
 // Components
 import Navbar from "./components/Navbar/Navbar";

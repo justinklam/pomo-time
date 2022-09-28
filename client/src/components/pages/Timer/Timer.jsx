@@ -5,7 +5,7 @@ import "./timer.css";
 import { Link } from "react-router-dom";
 
 // Context
-import SettingsContext from "../../../context/SettingsContext";
+import SettingsContext from "../../../utils/SettingsContext";
 
 // React Circular Progress bar
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
