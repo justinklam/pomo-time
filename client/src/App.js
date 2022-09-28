@@ -10,8 +10,9 @@ import UserContext from "./utils/UserContext";
 
 // Components
 import Navbar from "./components/Navbar/Navbar";
-import Home from "./components/pages/Home/Home";
+// import Home from "./components/pages/Home/Home";
 import Timer from "./components/pages/Timer/Timer";
+import Statistics from "./components/pages/Statistics/Statistics";
 // import SignUp from "./components/pages/SignUp/SignUp";
 import Login from "./components/pages/Login/Login";
 import Settings from "./components/Settings/Settings";
@@ -35,10 +36,10 @@ function App() {
           <div className="main-container">
             <Routes>
               <Route path="/">
-                <Route index element={<Home />} />
-              </Route>
-              <Route path="/timer">
                 <Route index element={<Timer />} />
+              </Route>
+              <Route path="/statistics">
+                <Route index element={<Statistics />} />
               </Route>
               {/* <Route path="/sign-up">
               <Route index element={<SignUp />} />

@@ -42,7 +42,7 @@ const Settings = () => {
         onChange={(newValue) => settingsInfo.setBreakMinutes(newValue)}
       ></ReactSlider>
       <div className="back-btn-container">
-        <Link to="/timer">
+        <Link to="/">
           <BackButton />
         </Link>
       </div>

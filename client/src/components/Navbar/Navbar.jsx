@@ -25,14 +25,24 @@ const Navbar = () => {
         <i className={click ? "fas fa-times" : "fas fa-bars"} />
       </div>
       <ul className={click ? "nav-menu active" : "nav-menu"}>
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <Link to="/" className="nav-links" onClick={closeMobileMenu}>
             Home
           </Link>
-        </li>
+        </li> */}
         <li className="nav-item">
-          <Link to="/timer" className="nav-links" onClick={closeMobileMenu}>
+          <Link to="/" className="nav-links" onClick={closeMobileMenu}>
             Timer <i className="fa-solid fa-clock"></i>
+          </Link>
+        </li>
+        {/* Mobile Nav Links */}
+        <li className="nav-item">
+          <Link
+            to="/statistics"
+            className="nav-links"
+            onClick={closeMobileMenu}
+          >
+            Statistics
           </Link>
         </li>
 
@@ -50,7 +60,7 @@ const Navbar = () => {
         ) : (
           <li className="nav-item">
             <Link
-              to="/timer"
+              to="/"
               className="nav-links-mobile"
               onClick={() => {
                 closeMobileMenu();
