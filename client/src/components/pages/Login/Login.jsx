@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./login.css";
 import axios from "axios";
 
 // React Router Dom
 import { useNavigate } from "react-router-dom";
 
+// Context
+import UserContext from "../../../utils/UserContext";
+
 const Login = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -19,8 +23,10 @@ const Login = () => {
         name,
         password,
       });
+      setUser(res.data);
       navigate(`/timer`);
-      console.log(res.data);
+      // console.log("login-data", res.data);
+      // console.log("user", user);
     } catch (err) {
       console.log(err);
     }
@@ -36,7 +42,7 @@ const Login = () => {
         password,
       });
       navigate(`/timer`);
-      console.log(res.data);
+      // console.log(res.data);
     } catch (err) {
       console.log(err);
     }
