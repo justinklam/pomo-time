@@ -35,21 +35,28 @@ const SignUp = () => {
         <input
           placeholder="Username"
           className="sign-up-input"
+          data-testid="username-input"
           onChange={(e) => setName(e.target.value)}
         ></input>
         <input
           type="email"
           placeholder="Email"
           className="sign-up-input"
+          data-testid="email-input"
           onChange={(e) => setEmail(e.target.value)}
         ></input>
         <input
           type="password"
           placeholder="Password"
           className="sign-up-input"
+          data-testid="password-input"
           onChange={(e) => setPassword(e.target.value)}
         ></input>
-        <button className="sign-up-button" onClick={handleSignUp}>
+        <button
+          className="sign-up-button"
+          onClick={handleSignUp}
+          data-testid="signup-btn"
+        >
           Sign Up
         </button>
       </form>

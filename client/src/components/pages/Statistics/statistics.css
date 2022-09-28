@@ -1,4 +1,4 @@
-.statistics-container {
+.stats-container {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -8,7 +8,7 @@
   padding: 10px;
 }
 
-.statistics-title {
+.stats-title {
   font-size: 1.5rem;
   color: var(--text-color);
 }
