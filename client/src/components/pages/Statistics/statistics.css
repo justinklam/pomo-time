@@ -1,0 +1,14 @@
+.statistics-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--primary-color);
+  border: 1px solid var(--accent-color);
+  padding: 10px;
+}
+
+.statistics-title {
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
