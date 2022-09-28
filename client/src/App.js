@@ -20,10 +20,10 @@ function App() {
   const [breakMinutes, setBreakMinutes] = useState(15);
 
   return (
-    <SettingsContext.Provider
-      value={{ workMinutes, breakMinutes, setWorkMinutes, setBreakMinutes }}
-    >
-      <BrowserRouter>
+    <BrowserRouter>
+      <SettingsContext.Provider
+        value={{ workMinutes, breakMinutes, setWorkMinutes, setBreakMinutes }}
+      >
         <Navbar />
         <div className="main-container">
           <Routes>
@@ -44,8 +44,8 @@ function App() {
             </Route>
           </Routes>
         </div>
-      </BrowserRouter>
-    </SettingsContext.Provider>
+      </SettingsContext.Provider>
+    </BrowserRouter>
   );
 }
 
