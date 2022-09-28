@@ -35,7 +35,6 @@ const Navbar = () => {
             Timer <i className="fa-solid fa-clock"></i>
           </Link>
         </li>
-        {/* Mobile Nav Links */}
         <li className="nav-item">
           <Link
             to="/statistics"
@@ -48,15 +47,26 @@ const Navbar = () => {
 
         {/* Mobile Nav Links */}
         {!user ? (
-          <li className="nav-item">
-            <Link
-              to="/login"
-              className="nav-links-mobile"
-              onClick={closeMobileMenu}
-            >
-              Login
-            </Link>
-          </li>
+          <>
+            <li className="nav-item">
+              <Link
+                to="/sign-up"
+                className="nav-links-mobile"
+                onClick={closeMobileMenu}
+              >
+                Sign Up
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="/login"
+                className="nav-links-mobile"
+                onClick={closeMobileMenu}
+              >
+                Login
+              </Link>
+            </li>
+          </>
         ) : (
           <li className="nav-item">
             <Link
@@ -74,9 +84,14 @@ const Navbar = () => {
       </ul>
 
       {!user ? (
-        <Link to="/login">
-          <button className="login-btn">Login</button>
-        </Link>
+        <>
+          <Link to="/sign-up">
+            <button className="sign-up-btn">Sign Up</button>
+          </Link>
+          <Link to="/login">
+            <button className="login-btn">Login</button>
+          </Link>
+        </>
       ) : (
         <Link to="/">
           <button

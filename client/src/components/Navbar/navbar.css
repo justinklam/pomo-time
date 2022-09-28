@@ -56,6 +56,49 @@
   display: none;
 }
 
+.sign-up-btn {
+  background-color: var(--accent-color);
+  padding: 8px 20px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-right: 10px;
+  font-size: 18px;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.sign-up-btn:hover {
+  padding: 6px 18px;
+  border-radius: 4px;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  background: var(--text-color);
+}
+
+.login-btn {
+  background-color: var(--accent-color);
+  padding: 8px 20px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 18px;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  padding: 6px 18px;
+  border-radius: 4px;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  background: var(--text-color);
+}
+
 @media screen and (max-width: 860px) {
   .NavbarItems {
     position: relative;
@@ -144,47 +187,4 @@
   .login-btn {
     display: none;
   }
-}
-
-.sign-up-btn {
-  background-color: var(--accent-color);
-  padding: 8px 20px;
-  border-radius: 4px;
-  border: none;
-  outline: none;
-  white-space: nowrap;
-  overflow: hidden;
-  margin-right: 10px;
-  font-size: 18px;
-  color: var(--text-color);
-  cursor: pointer;
-}
-
-.sign-up-btn:hover {
-  padding: 6px 18px;
-  border-radius: 4px;
-  border: 2px solid var(--accent-color);
-  color: var(--accent-color);
-  background: var(--text-color);
-}
-
-.login-btn {
-  background-color: var(--accent-color);
-  padding: 8px 20px;
-  border-radius: 4px;
-  border: none;
-  outline: none;
-  white-space: nowrap;
-  overflow: hidden;
-  font-size: 18px;
-  color: var(--text-color);
-  cursor: pointer;
-}
-
-.login-btn:hover {
-  padding: 6px 18px;
-  border-radius: 4px;
-  border: 2px solid var(--accent-color);
-  color: var(--accent-color);
-  background: var(--text-color);
 }
