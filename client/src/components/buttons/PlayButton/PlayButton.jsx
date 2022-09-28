@@ -3,7 +3,7 @@ import "./playButton.css";
 
 const PlayButton = (props) => {
   return (
-    <button className="play-btn" {...props}>
+    <button className="play-btn" {...props} data-testid="play-btn">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

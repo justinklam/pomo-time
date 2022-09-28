@@ -3,7 +3,7 @@ import "./settingsButton.css";
 
 const SettingsButton = () => {
   return (
-    <button className="settings-btn">
+    <button className="settings-btn" data-testid="settings-btn">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
