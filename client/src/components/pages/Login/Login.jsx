@@ -5,10 +5,18 @@ import axios from "axios";
 // React Router Dom
 import { useNavigate } from "react-router-dom";
 
+// React Redux
+import { useDispatch, useSelector } from "react-redux";
+import { loginSuccess } from "../../redux/userSlice";
+
 const Login = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  // Redux
+  const dispatch = useDispatch();
+  const { currentUser } = useSelector((state) => state.user);
 
   const navigate = useNavigate();
 
@@ -19,12 +27,14 @@ const Login = () => {
         name,
         password,
       });
+      dispatch(loginSuccess(res.data));
       navigate(`/timer`);
       console.log(res.data);
     } catch (err) {
-      console.log(err);
+      console.log("Login Error:", err);
     }
   };
+  console.log("currentUser:", { currentUser });
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -38,7 +48,7 @@ const Login = () => {
       navigate(`/timer`);
       console.log(res.data);
     } catch (err) {
-      console.log(err);
+      console.log("Signup Error:", err);
     }
   };
 
