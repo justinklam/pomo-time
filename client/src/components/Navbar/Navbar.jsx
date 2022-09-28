@@ -78,7 +78,7 @@ const Navbar = () => {
           <button className="login-btn">Login</button>
         </Link>
       ) : (
-        <Link to="/timer">
+        <Link to="/">
           <button
             className="login-btn"
             onClick={() => {
