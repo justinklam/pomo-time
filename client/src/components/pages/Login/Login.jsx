@@ -3,14 +3,13 @@ import "./login.css";
 import axios from "axios";
 
 // React Router Dom
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Context
 import UserContext from "../../../utils/UserContext";
 
 const Login = () => {
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const { setUser } = useContext(UserContext);
@@ -27,22 +26,6 @@ const Login = () => {
       navigate(`/`);
       // console.log("login-data", res.data);
       // console.log("user", user);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const handleSignUp = async (e) => {
-    e.preventDefault();
-    console.log(name, email, password);
-    try {
-      const res = await axios.post("http://localhost:8080/api/auth/signup", {
-        name,
-        email,
-        password,
-      });
-      navigate(`/`);
-      console.log(res.data);
     } catch (err) {
       console.log(err);
     }
@@ -67,31 +50,10 @@ const Login = () => {
         <button className="login-button" onClick={handleLogin}>
           Login
         </button>
-      </form>
-
-      <h2 className="login-subtitle">or</h2>
-      <h1 className="login-title">Sign Up</h1>
-      <form className="login-form">
-        <input
-          placeholder="Username"
-          className="login-input"
-          onChange={(e) => setName(e.target.value)}
-        ></input>
-        <input
-          type="email"
-          placeholder="Email"
-          className="login-input"
-          onChange={(e) => setEmail(e.target.value)}
-        ></input>
-        <input
-          type="password"
-          placeholder="Password"
-          className="login-input"
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
-        <button className="login-button" onClick={handleSignUp}>
-          Sign Up
-        </button>
+        <h2 className="login-subtitle">or</h2>
+        <Link to="/sign-up">
+          <button className="login-button">Sign Up</button>
+        </Link>
       </form>
     </div>
   );
