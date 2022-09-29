@@ -3,27 +3,26 @@
 ## Description
 
 <p>Welcome to <b>Pomo-Time</b>, a Pomodoro timer with adjustable settings!</p>
-<p>Front-end built with JavaScript and React. </p>
+<p>Backend uses Express and JWT for authorization. Database is built with MongoDB and Mongoose.</p>
 
 ### Tech stack
 
 ```
 Core:
 - JavaScript
-- React
+- Express
+- Node.JS
+- MongoDB
+- Mongoose
 ```
 
 ## Available Scripts
 
-In the client directory, open the app with:
+In the backend directory, open the app with nodemon using:
 
 ### `npm start`
 
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:8000](http://localhost:8000) to view it in your browser.
 
 The page will reload when you make changes.
 You may also see any lint errors in the console.
-
-### `npm test`
-
-Run `npm test` to run Unit Tests.
