@@ -55,7 +55,7 @@ const Timer = () => {
           // decrement timer
           setCurrentSeconds(currentSeconds - 1);
         }
-      }, 10); // 1000 = 25 min, 100 = 2.5 min total time
+      }, 1000); // 1000 = 25 min, 100 = 2.5 min total time
     }
   }, [currentSeconds, timerActive, settingsInfo, workStatus]);
 
