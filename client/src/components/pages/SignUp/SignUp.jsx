@@ -24,7 +24,7 @@ const SignUp = () => {
       navigate(`/login`);
       console.log(res.data);
     } catch (err) {
-      console.log(err);
+      console.log("Sign Up Error:", err);
     }
   };
 
