@@ -12,5 +12,7 @@ export const addPomodoro = async (req, res, next) => {
   try {
     const savedPomodoro = await newPomodoro.save();
     res.status(200).json(savedPomodoro);
-  } catch (error) {}
+  } catch (error) {
+    createError(500, "Error: Could not create entry!");
+  }
 };
