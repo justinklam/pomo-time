@@ -19,17 +19,12 @@ import SettingsButton from "../../buttons/SettingsButton/SettingsButton";
 const Timer = () => {
   const settingsInfo = useContext(SettingsContext);
 
-  // whether timer is running
-  const [timerActive, setTimerActive] = useState(false);
-  // work or break mode
-  const [workStatus, setWorkStatus] = useState("Work Time");
-
-  // current countdown time
+  const [timerActive, setTimerActive] = useState(false); // whether timer is running
+  const [workStatus, setWorkStatus] = useState("Work Time"); // work or break mode
   const [currentSeconds, setCurrentSeconds] = useState(
     settingsInfo.workMinutes * 60
-  );
-  // max work time length
-  const [maxSeconds, setMaxSeconds] = useState(settingsInfo.workMinutes * 60);
+  ); // current countdown time
+  const [maxSeconds, setMaxSeconds] = useState(settingsInfo.workMinutes * 60); // max work time length
 
   useEffect(() => {
     if (timerActive) {
