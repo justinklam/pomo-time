@@ -38,7 +38,7 @@ app.use(
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 
-app.listen(8080, () => {
+app.listen(port, () => {
   connect();
   console.log(`Server connected at ${port}! 🐅`);
 });
